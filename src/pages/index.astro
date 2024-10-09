@@ -1,19 +1,19 @@
----
-import MainLayout from "../layouts/MainLayout.astro";
-import Button from '../components/Button.astro';
-import Link from '../components/Link.astro';
-import { Image } from 'astro:assets';
-import apoteket from "../assets/images/apoteket.jpg";
-import arbejde from "../assets/images/arbejde.jpg";
-import glitch from "../assets/images/glitch.jpg";
-import godtarbejde from "../assets/images/godt-arbejde.jpg";
-import lidtifem from "../assets/images/lidtifem-pierre-falcke.jpg";
-import smena from "../assets/images/lomo-smena-17.jpg";
-import overouticm from "../assets/images/over-out-icm.jpeg";
-import pierre from "../assets/images/pierre.jpeg";
-import tyndfilm from "../assets/images/tynd-film.jpg";
-import "../styles/tobii.min.css";
----
+--- 
+import MainLayout from "../layouts/MainLayout.astro"; 
+import Button from '../components/Button.astro'; 
+import Link from '../components/Link.astro'; 
+import { Image } from 'astro:assets'; 
+import apoteket from "../assets/images/apoteket.jpg"; 
+import arbejde from "../assets/images/arbejde.jpg"; 
+import glitch from "../assets/images/glitch.jpg"; 
+import godtarbejde from "../assets/images/godt-arbejde.jpg"; 
+import lidtifem from "../assets/images/lidtifem-pierre-falcke.jpg"; 
+import smena from "../assets/images/lomo-smena-17.jpg"; 
+import overouticm from "../assets/images/over-out-icm.jpeg"; 
+import pierre from "../assets/images/pierre.jpeg"; 
+import tyndfilm from "../assets/images/tynd-film.jpg"; 
+import "../styles/tobii.min.css"; 
+--- 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/canvas-confetti/1.5.1/confetti.browser.min.js"></script>
 
@@ -28,6 +28,7 @@ import "../styles/tobii.min.css";
 			origin: { y: 0.6 }
 		});
 	}
+
 	function messageComponent() {
 		return {
 			showMessage: false,
@@ -42,11 +43,17 @@ import "../styles/tobii.min.css";
 </script>
 
 <MainLayout title="Surprise og Delight">
-	<div x-data="{ scrollPos: 0 }" @scroll.window="scrollPos = window.scrollY">
+	<div x-data="{ scrollPos: 0, messages: ['Besked 1', 'Besked 2', 'Besked 3'], randomMessage: '' }" @scroll.window="scrollPos = window.scrollY">
 		<article :class="scrollPos > 200 ? 'bg-gradient-to-r from-blue-500 to-purple-500' : 'bg-white'" class="transition-all duration-300 p-4 md:p-0">
+			<article 
+			:class="scrollPos > 200 ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white text-shadow' : 'bg-white text-gray-800'" 
+			class="transition-all duration-300 p-4 md:p-0"
+		>
 			<section class="max-w-xl mx-auto mt-32 prose" id="titel">
-				<h2 class="text-6xl md:text-9xl text-center animate__animated animate__fadeIn">Uperfekt er perfekt</h2>
-			</section>
+				<h2 class="text-6xl md:text-9xl text-center animate__animated animate__fadeIn" :class="scrollPos > 200 ? 'text-white' : 'text-gray-800'">Uperfekt er perfekt</h2>
+			</section>		
+		</article>
+			
 
 			<section class="max-w-4xl mx-auto mt-32" id="herovideo">
 				<video width="1280" height="960" autoplay muted loop>
@@ -74,18 +81,30 @@ import "../styles/tobii.min.css";
 				</p>
 			</section>
 
-			<section class="max-w-xl mx-auto mt-32" x-data="messageComponent()">
-				<button 
-					class="button bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-800 hover:shadow-lg transition duration-300" 
-					@click="toggleMessage()">
-					Klik her
-				</button>
-				<div 
-					x-show="showMessage" 
-					class="message mt-4 p-4 bg-green-200 text-black rounded"
-					x-transition>
-					Oversraskelse! Tak fordi du klikker!
-				</div>
+			<!-- Besked-sektion til tilfældige beskeder -->
+			<section class="max-w-xl mx-auto mt-32" x-data="{ randomMessage: '', messages: [
+			'Det uperfekte er ofte det mest ægte.',
+			'Fejl er beviser på, at du prøver.',
+			'Skridtene til succes er ofte i usikkerhedens skygge.',
+			'Husk, at hver fejl bringer dig et skridt tættere på succes.',
+			'Livet er en rejse, ikke en destination. Nyd hvert øjeblik!',
+			'Selv de bedste fotografer tager ikke altid perfekte billeder.',
+			'Hvem har brug for perfekte billeder, når du har karakter?',
+			'Uperfekte øjeblikke er ofte de sjoveste!',
+			'Det eneste perfekte billede er det, der gør dig glad.',
+			'Det er de små, uperfekte øjeblikke, der gør livet værd at leve.',
+			'Selv det mest beskedne motiv kan blive til et mesterværk.',
+			'Husk: det handler ikke kun om billedet, men om historien bag.',
+			'Tag et øjeblik til at se skønheden i det uperfekte.',
+			'Hvad inspirerer dig i dag? Del dit øjeblik med os!',
+			'Find skønheden i det enkle og det uventede.'
+			]}">
+			<button 
+				class="bg-gradient-to-r from-blue-400 to-blue-600 text-white font-bold py-3 px-6 rounded shadow-lg hover:bg-blue-700 transition duration-300 transform hover:scale-105" 
+				@click="randomMessage = messages[Math.floor(Math.random() * messages.length)]">
+				Klik for perfekt uperfekt besked
+			</button>
+			<p class="mt-4 text-lg text-gray-800 italic" x-text="randomMessage"></p>
 			</section>
 
 			<section class="max-w-4xl mx-auto my-32 prose border border-double border-black p-8" id="hvaderstockfotos">
@@ -118,17 +137,11 @@ import "../styles/tobii.min.css";
 				<div class="max-w-xl mx-auto mt-32 prose">
 					<h2 class="text-4xl">En skillevej</h2>
 					<p>Pierre tjente godt det følgende årti. Men stille og roligt begyndte billederne også at give ham kvalme. Han kunne ikke holde sit eget arbejde ud, og måtte finde et modsvar til alle de blankpolerede fotos. Noget han kunne lave med stolthed. Pierre bestluttede sig for at droppe stock-fotos, og vende tilbage til rødderne.</p>
-					<p>Han søgte inspiration i analog fotografering, i Lomo-bevægelsen, Glitch art og polaroid fotografering, og begyndte stille og roligt at skabe sig en ny stil - en stil med fokus på det uperfekte, og hvor der er et uforudsigeligt element i det at tage billeder.</p>
+					<p>Han søgte inspiration i analog fotografering, i Lomo-bevægelsen, Glitch art og polaroid fotografering, og begyndte stille og roligt at skabe sig en ny stil - en stil med fokus på det uperfekte. </p>
+					<Image src={glitch} alt="Billede af Glitch art" />
+					<Image src={smena} alt="Billede af Lomo Smena" />
+					<Image src={tyndfilm} alt="Billede af tynd film" />
 				</div>
-				<div class="grid grid-cols-2 gap-4 max-w-4xl mx-auto my-32">
-					<Image src={glitch} alt="Glitch art" />
-					<Image src={tyndfilm} alt="Tynd film" />
-				</div>
-			</section>
-			<section class="max-w-xl mx-auto mt-32 prose" id="konklusion">
-				<h2 class="text-4xl">Konklusion</h2>
-				<p>Uperfekthed er essensen i det vi kalder liv. Det er vores fejl og uheld, der gør os til dem vi er, og skaber relationer til andre mennesker. Det er den uperfekte rejse, vi hver især tager i vores liv. Og som Pierre sagde: “Der findes ikke dårlige billeder. Der findes kun billeder, der ikke blev taget.”</p>
-				<p>Uperfekthed skaber værdi - værdi, som vi alle kan relatere til. Det er et værktøj til at leve et mere autentisk liv.</p>
 			</section>
 		</article>
 	</div>

@@ -9,10 +9,14 @@
 @layer base {
     /* Farvepalette */
     :root {
-        --dark-blue: #003366;
-        --coral: #FF6F61;
-        --white: #FFFFFF;
-        --light-gray: #F0F0F0;
+        --dark-blue: #003366;  /* Standard tekstfarve */
+        --coral: #FF6F61;      /* Overskriftsfarve */
+        --white: #FFFFFF;      /* Hvid farve */
+        --light-gray: #F0F0F0; /* Baggrundsfarve */
+        --button-bg: #4A90E2;  /* Knap baggrundsfarve */
+        --button-hover-bg: #357ABD; /* Knap hover baggrundsfarve */
+        --link-color: #007BFF; /* Link farve */
+        --link-hover-color: #0056b3; /* Link hover farve */
     }
 
     /* Typografi */
@@ -27,6 +31,32 @@
         color: var(--dark-blue); /* Standard tekstfarve */
     }
 
+    /* Tekstskygge til læsbarhed */
+    .text-shadow {
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+    }
+
+    /* Knap styling */
+    button {
+        background-color: var(--button-bg); /* Knap baggrundsfarve */
+        color: var(--white); /* Knap tekstfarve */
+        transition: background-color 0.3s; /* Smooth transition */
+    }
+
+    button:hover {
+        background-color: var(--button-hover-bg); /* Hover baggrundsfarve */
+    }
+
+    /* Link styling */
+    a {
+        color: var(--link-color); /* Link farve */
+        text-decoration: underline; /* Understregning for links */
+    }
+
+    a:hover {
+        color: var(--link-hover-color); /* Hover farve for links */
+    }
+
     /* Tobii mods */
     .tobii-zoom {
         width: 100%;
@@ -35,11 +65,6 @@
     .tobii__slide figure > img {
         padding-bottom: 50px;
     }
-
-    /* iframe {
-        max-width: 90%;
-        margin: auto;
-    } */
 
     .tobii {
         background-color: black;
