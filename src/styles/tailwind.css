@@ -1,12 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@layer base{
-    /*Tobii mods*/
-    .tobii-zoom{
+@import 'animate.css/animate.min.css';
+
+@layer base {
+    /* Farvepalette */
+    :root {
+        --dark-blue: #003366;
+        --coral: #FF6F61;
+        --white: #FFFFFF;
+        --light-gray: #F0F0F0;
+    }
+
+    /* Typografi */
+    h1, h2, h3 {
+        font-family: 'Playfair Display', serif;
+        color: var(--coral); /* Anvend koralfarven til overskrifter */
+    }
+
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: var(--light-gray); /* Baggrundsfarve */
+        color: var(--dark-blue); /* Standard tekstfarve */
+    }
+
+    /* Tobii mods */
+    .tobii-zoom {
         width: 100%;
     }
+
     .tobii__slide figure > img {
         padding-bottom: 50px;
     }
@@ -19,5 +44,5 @@
     .tobii {
         background-color: black;
     }
-
 }
+
