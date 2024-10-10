@@ -175,18 +175,13 @@ import type { TimelineSegment } from '@motionone/dom';
             isAudioPlaying = !isAudioPlaying;
         });
 
-        const header = document.getElementById('entrance-header');
-        animate(header, { opacity: 0, y: -50 }, { duration: 0 });
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    animate(header, { opacity: 1, y: 0 }, { duration: 1 });
-                    observer.unobserve(entry.target);
-                }
-            });
-        });
+        document.addEventListener('DOMContentLoaded', () => {
+    const header = document.getElementById('entrance-header');
 
-        observer.observe(header);
+    // Initial state for animation
+    animate(header, { opacity: 1, y: 0 }, { duration: 1 }); // Sørg for, at headeren vises med det samme
+});
+
 
         // inView animation
         motionInView(".fotoinview", () => {
