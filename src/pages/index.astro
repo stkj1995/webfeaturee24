@@ -43,6 +43,12 @@ import "../styles/tobii.min.css";
 </script>
 
 <MainLayout title="Surprise og Delight">
+	<style>
+        body {
+            cursor: url('/src/assets/images/custom-cursor.png'), auto;
+        }
+    </style>
+	
 	<div x-data="{ scrollPos: 0, messages: ['Besked 1', 'Besked 2', 'Besked 3'], randomMessage: '' }" @scroll.window="scrollPos = window.scrollY">
 		<article :class="scrollPos > 200 ? 'bg-gradient-to-r from-blue-500 to-purple-500' : 'bg-white'" class="transition-all duration-300 p-4 md:p-0">
 			<article 
