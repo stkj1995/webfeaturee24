@@ -51,7 +51,6 @@ import { animate, scroll } from '@motionone/dom';
 				</button>
 			</section>
 		
-            
 			<section class="max-w-xl mx-auto mt-32 prose" id="manchet">
 				<p class="text-xl">Pierre Falcke. Du ved formentligt ikke hvem han er. Men indtil for kort tid siden, så du hans værker et par gange om dagen, hver dag, året rundt. Pierre Falcke var en af verdens bedst sælgende stock-fotografer, og han solgte over 2 millioner fotos om året. Men Pierre kunne ikke drømme om at bruge sine egne fotos - faktisk kan han ikke fordrage sit eget arbejde.</p>
 				<div class="mb-6">
@@ -113,15 +112,15 @@ import { animate, scroll } from '@motionone/dom';
             <section class="grid grid-cols-1 md:grid-cols-2 mt-10">
                 <div class="bg-gray-800 p-4 shadow-lg">
                     <h3 class="text-2xl font-bold text-white mb-4">Uperfekte billeder</h3>
-                    <Image src={overouticm} alt="" class="rounded-lg shadow-lg mb-4"/>
-                    <Image src={tyndfilm} alt="" class="rounded-lg shadow-lg mb-4"/>
+                    <Image src={overouticm} alt="" class="staggered-image rounded-lg shadow-lg mb-4"/>
+                    <Image src={tyndfilm} alt="" class="staggered-image rounded-lg shadow-lg mb-4"/>
                 </div>
                 <div class="bg-gray-800 p-4 shadow-lg">
                     <h3 class="text-2xl font-bold text-white mb-4">Smena og ICM</h3>
-                    <Image src={smena} alt="" class="rounded-lg shadow-lg mb-4"/>
-                    <Image src={glitch} alt="" class="rounded-lg shadow-lg mb-4"/>
+                    <Image src={smena} alt="" class="staggered-image rounded-lg shadow-lg mb-4"/>
+                    <Image src={glitch} alt="" class="staggered-image rounded-lg shadow-lg mb-4"/>
                 </div>             
-            </section>
+            </section>            
         </div>
     </div>
 </MainLayout>
@@ -167,6 +166,21 @@ import { animate, scroll } from '@motionone/dom';
         });
     });
 
+    document.addEventListener('DOMContentLoaded', () => {
+    // ... eksisterende kode ...
 
-    
+    // Anvend staggered animation på billederne nederst
+    const imageElements = document.querySelectorAll('.staggered-image');
+    imageElements.forEach((image, index) => {
+        inView(image, () => {
+            animate(
+                image,
+                { opacity: [0, 1], transform: ['translateY(50px)', 'translateY(0)'] },
+                { duration: 1, delay: index * 0.3 } // Forsinkelse baseret på indekset for stagger-effekt
+            );
+        });
+    });
+});
+
+
 </script>
