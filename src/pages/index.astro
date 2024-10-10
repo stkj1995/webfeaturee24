@@ -14,7 +14,7 @@ import pierre from "../assets/images/pierre.jpeg";
 import tyndfilm from "../assets/images/tynd-film.jpg"; 
 import "../styles/tobii.min.css"; 
 import { animate, scroll } from '@motionone/dom';
---- 
+---
 
 <MainLayout title="Surprise og Delight">
     <style>
@@ -25,7 +25,7 @@ import { animate, scroll } from '@motionone/dom';
 
     <div x-data="{ scrollPos: 0, showProgressBar: false, messages: ['Besked 1', 'Besked 2', 'Besked 3'], randomMessage: '' }" @scroll.window="scrollPos = window.scrollY; showProgressBar = scrollPos > 0">
         <div 
-            :class="scrollPos > 200 ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white' : 'bg-white text-gray-800'" 
+            :class="scrollPos > 200 ? 'bg-gradient-to-r from-pink-500 to-yellow-300 text-white' : 'bg-white text-gray-800'" 
             class="transition-all duration-300 min-h-screen"
         >
             <article class="p-4 md:p-0">
@@ -40,27 +40,32 @@ import { animate, scroll } from '@motionone/dom';
             </div>
 
             <section class="max-w-4xl mx-auto mt-32" id="herovideo">
-                <video width="1280" height="960" autoplay muted loop>
+                <video class="w-full rounded-lg shadow-lg" autoplay muted loop>
                     <source src="pierre-falcke-video.mp4" type="video/mp4">
-                </video> 
+                </video>
+                <!-- Lydafspiller med loop -->
+                <audio id="background-audio" loop>
+                    <source src="assets/sounds/warm-chords-loop.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
             </section>
-
+            
             <section class="max-w-xl mx-auto mt-32 prose" id="manchet">
                 <p class="text-xl">Pierre Falcke. Du ved formentligt ikke hvem han er. Men indtil for kort tid siden, så du hans værker et par gange om dagen, hver dag, året rundt. Pierre Falcke var en af verdens bedst sælgende stock-fotografer, og han solgte over 2 millioner fotos om året. Men Pierre kunne ikke drømme om at bruge sine egne fotos - faktisk kan han ikke fordrage sit eget arbejde.</p>
-                <div>
+                <div class="mb-6">
                     <a href="pierre.jpeg" class="lightbox">
-                        <Image src={pierre} alt="" class="my-0"/>
-                        <figcaption>Pierre Falcke, selvportræt</figcaption>
+                        <Image src={pierre} alt="" class="rounded-lg shadow-lg"/>
+                        <figcaption class="mt-2 text-center text-sm italic text-gray-600">Pierre Falcke, selvportræt</figcaption>
                     </a>
                 </div>
                 
-                <p class="text-2xl italic text-center bg-black p-8 text-white">
+                <p class="text-2xl italic text-center bg-gray-800 p-8 text-white rounded-lg">
                     Pierre sælger 2 millioner fotos om året
                 </p>
-                <p class="text-2xl italic text-center bg-black p-8 text-white">
+                <p class="text-2xl italic text-center bg-gray-800 p-8 text-white rounded-lg">
                     Det svarer til én fotolicens hvert 16. sekund
                 </p>
-                <p class="text-2xl italic text-center bg-black p-8 text-white">
+                <p class="text-2xl italic text-center bg-gray-800 p-8 text-white rounded-lg">
                     Du ser hans fotos ca. 2 gange om dagen
                 </p>
             </section>
@@ -90,12 +95,12 @@ import { animate, scroll } from '@motionone/dom';
                 }
             }">
                 <button 
-                    class="bg-gradient-to-r from-blue-400 to-blue-600 text-white font-bold py-3 px-6 rounded shadow-lg hover:bg-blue-700 transition duration-300 transform hover:scale-105" 
+                    class="bg-gradient-to-r from-blue-400 to-purple-600 text-white font-bold py-3 px-6 rounded shadow-lg hover:bg-blue-700 transition duration-300 transform hover:scale-105" 
                     @click="randomMessage = messages[Math.floor(Math.random() * messages.length)]; playSound()">
                     Klik for perfekt uperfekt besked
                 </button>
 
-                <p class="mt-4 text-lg text-gray-800 italic" x-text="randomMessage"></p>
+                <p class="mt-4 mb-6 text-lg text-gray-800 italic" x-text="randomMessage"></p>
 
                 <!-- Lydafspiller -->
                 <audio x-ref="trykforatafspillelyd">
@@ -103,27 +108,38 @@ import { animate, scroll } from '@motionone/dom';
                 </audio>
             </section>
 
-            <section class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
-                <div class="bg-gray-200 p-4">
-                    <h3 class="text-2xl font-bold">Uperfekte billeder</h3>
-                    <Image src={overouticm} alt="" class="mb-4"/>
-                    <Image src={tyndfilm} alt="" class="mb-4"/>
+            <section class="grid grid-cols-1 md:grid-cols-2 mt-8">
+                <div class="bg-gray-800 p-4 shadow-lg">
+                    <h3 class="text-2xl font-bold text-white">Uperfekte billeder</h3>
+                    <Image src={overouticm} alt="" class="rounded-lg shadow-lg mb-4"/>
+                    <Image src={tyndfilm} alt="" class="rounded-lg shadow-lg mb-4"/>
                 </div>
-                <div class="bg-gray-200 p-4">
-                    <h3 class="text-2xl font-bold">Smena og ICM</h3>
-                    <Image src={smena} alt="" class="mb-4"/>
-                    <Image src={glitch} alt="" class="mb-4"/>
-                </div>
-                <div class="bg-gray-200 p-4">
-                    <h3 class="text-2xl font-bold">Godt arbejde</h3>
-                    <Image src={godtarbejde} alt="" class="mb-4"/>
-                    <Image src={arbejde} alt="" class="mb-4"/>
-                </div>
-                <div class="bg-gray-200 p-4">
-                    <h3 class="text-2xl font-bold">Lidt af Fem</h3>
-                    <Image src={lidtifem} alt="" class="mb-4"/>
-                </div>
+                <div class="bg-gray-800 p-4 shadow-lg">
+                    <h3 class="text-2xl font-bold text-white">Smena og ICM</h3>
+                    <Image src={smena} alt="" class="rounded-lg shadow-lg mb-4"/>
+                    <Image src={glitch} alt="" class="rounded-lg shadow-lg mb-4"/>
+                </div>             
             </section>
         </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const audio = document.getElementById('background-audio');
+            const herovideoSection = document.getElementById('herovideo');
+
+            window.addEventListener('scroll', () => {
+                const rect = herovideoSection.getBoundingClientRect();
+
+                // Tjekker, om video-sektionen er synlig
+                if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
+                    audio.play().catch((error) => {
+                        console.log("Lyden kunne ikke starte:", error);
+                    });
+                } else {
+                    audio.pause();
+                }
+            });
+        });
+    </script>
 </MainLayout>
