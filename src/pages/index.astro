@@ -17,7 +17,6 @@ import { animate, scroll } from '@motionone/dom';
 ---
 <script src="https://cdn.jsdelivr.net/npm/@motionone/dom@latest/dist/motion-one.min.js"></script>
 
-
 <MainLayout title="Surprise og Delight">
     <style>
         body {
@@ -49,7 +48,7 @@ import { animate, scroll } from '@motionone/dom';
 				<button id="toggle-sound" class="absolute bottom-5 right-5 bg-gradient-to-r from-green-400 to-blue-600 text-white font-bold py-2 px-4 rounded shadow-lg hover:bg-green-700 transition duration-300 transform hover:scale-105">
 					Slå lyd til
 				</button>
-			</section>
+			</section>      
 		
 			<section class="max-w-xl mx-auto mt-32 prose" id="manchet">
 				<p class="text-xl">Pierre Falcke. Du ved formentligt ikke hvem han er. Men indtil for kort tid siden, så du hans værker et par gange om dagen, hver dag, året rundt. Pierre Falcke var en af verdens bedst sælgende stock-fotografer, og han solgte over 2 millioner fotos om året. Men Pierre kunne ikke drømme om at bruge sine egne fotos - faktisk kan han ikke fordrage sit eget arbejde.</p>
@@ -127,7 +126,7 @@ import { animate, scroll } from '@motionone/dom';
 
 <script>
     // Importer Motion One
-    import { animate, inView } from '@motionone/dom';
+    import { animate, inView as motionInView } from '@motionone/dom';
 
     document.addEventListener('DOMContentLoaded', () => {
         const audio = document.getElementById('background-audio') as HTMLAudioElement;
@@ -161,7 +160,7 @@ import { animate, scroll } from '@motionone/dom';
         observer.observe(header);
 
         // inView animation
-        inView(".fotoinview", () => {
+        motionInView(".fotoinview", () => {
             animate(".fotoinview", { x: [-2000, 0] }, { duration: 3 });
         });
     });
@@ -172,7 +171,7 @@ import { animate, scroll } from '@motionone/dom';
     // Anvend staggered animation på billederne nederst
     const imageElements = document.querySelectorAll('.staggered-image');
     imageElements.forEach((image, index) => {
-        inView(image, () => {
+        motionInView(image, () => {
             animate(
                 image,
                 { opacity: [0, 1], transform: ['translateY(50px)', 'translateY(0)'] },
@@ -182,5 +181,15 @@ import { animate, scroll } from '@motionone/dom';
     });
 });
 
+    document.addEventListener('DOMContentLoaded', () => {
+        // inView animation for header
+        motionInView('#entrance-header', ({ target }) => {
+            animate(target, { opacity: 1, y: 0 }, { duration: 1 });
+        });
 
+        // inView animation for description
+        motionInView('#entrance-description', ({ target }) => {
+            animate(target, { opacity: 1, y: 0 }, { duration: 1 });
+        });
+    });
 </script>
