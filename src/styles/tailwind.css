@@ -59,6 +59,7 @@
     color: var(--link-hover-color); /* Hover farve for links */
   }
 
+  /* Custom cursor */
   .custom-cursor {
     cursor: url('/src/assets/images/custom-cursor.png'), auto;
 }
