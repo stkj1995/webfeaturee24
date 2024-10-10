@@ -20,7 +20,9 @@
   }
 
   /* Typografi */
-  h1, h2, h3 {
+  h1,
+  h2,
+  h3 {
     font-family: "Playfair Display", serif;
     color: var(--coral);
   }
@@ -77,6 +79,10 @@
     background-color: #4caf50;
     transform-origin: left;
     transition: transform 0.25s ease;
+  }
+
+  #toggle-sound {
+    z-index: 10; /* Sørg for at knappen er oven på videoen */
   }
 
   /* Tobii mods */
