@@ -32,6 +32,10 @@
     color: var(--dark-blue);
   }
 
+  .timelineanimation {
+    animation: fadeIn 1s forwards;
+}
+
   /* Tekstskygge */
   .text-shadow {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
