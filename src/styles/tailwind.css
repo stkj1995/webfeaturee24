@@ -9,14 +9,14 @@
 @layer base {
   /* Farvepalette */
   :root {
-    --dark-blue: #003366; /* Standard tekstfarve */
-    --coral: #ff6f61; /* Overskriftsfarve */
-    --white: #ffffff; /* Hvid farve */
-    --light-gray: #fff; /* Baggrundsfarve */
-    --button-bg: #4a90e2; /* Knap baggrundsfarve */
-    --button-hover-bg: #357abd; /* Knap hover baggrundsfarve */
-    --link-color: #007bff; /* Link farve */
-    --link-hover-color: #0056b3; /* Link hover farve */
+    --dark-blue: #003366;
+    --coral: #ff6f61;
+    --white: #ffffff;
+    --light-gray: #fff;
+    --button-bg: #4a90e2;
+    --button-hover-bg: #357abd;
+    --link-color: #007bff;
+    --link-hover-color: #0056b3;
   }
 
   /* Typografi */
@@ -33,7 +33,7 @@
     color: var(--dark-blue);
   }
 
-  /* Tekstskygge til læsbarhed */
+  /* Tekstskygge */
   .text-shadow {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
   }
@@ -82,7 +82,7 @@
   }
 
   #toggle-sound {
-    z-index: 10; /* Sørg for at knappen er oven på videoen */
+    z-index: 10;
   }
 
   /* Tobii mods */
@@ -96,5 +96,12 @@
 
   .tobii {
     background-color: black;
+  }
+}
+
+@layer components {
+  /* Eksempel på knapkomponent */
+  .btn {
+    @apply bg-button-bg text-white font-semibold py-2 px-4 rounded;
   }
 }
