@@ -56,7 +56,7 @@ import "../styles/tobii.min.css";
         body {
             cursor: url('/src/assets/images/custom-cursor.png'), auto;
         }
-    </style>
+    </style> 
 
     <div x-data="{ scrollPos: 0, messages: ['Besked 1', 'Besked 2', 'Besked 3'], randomMessage: '' }" @scroll.window="scrollPos = window.scrollY">
         <article :class="scrollPos > 200 ? 'bg-gradient-to-r from-blue-500 to-purple-500' : 'bg-white'" class="transition-all duration-300 p-4 md:p-0">
@@ -95,8 +95,10 @@ import "../styles/tobii.min.css";
             </p>
         </section>
 
-        <!-- Besked-sektion til tilfældige beskeder -->
-        <section class="max-w-xl mx-auto mt-32" x-data="{ randomMessage: '', messages: [
+   <!-- Besked-sektion til tilfældige beskeder -->
+<section class="max-w-xl mx-auto mt-32" x-data="{ 
+    randomMessage: '', 
+    messages: [
         'Det uperfekte er ofte det mest ægte.',
         'Fejl er beviser på, at du prøver.',
         'Skridtene til succes er ofte i usikkerhedens skygge.',
@@ -112,15 +114,26 @@ import "../styles/tobii.min.css";
         'Tag et øjeblik til at se skønheden i det uperfekte.',
         'Hvad inspirerer dig i dag? Del dit øjeblik med os!',
         'Find skønheden i det enkle og det uventede.'
-        ]}">
-            <button 
-                class="bg-gradient-to-r from-blue-400 to-blue-600 text-white font-bold py-3 px-6 rounded shadow-lg hover:bg-blue-700 transition duration-300 transform hover:scale-105" 
-                @click="randomMessage = messages[Math.floor(Math.random() * messages.length)]; playSound()">
-                Klik for perfekt uperfekt besked
-            </button>
+    ],
+    playSound() {
+        this.$refs.trykforatafspillelyd.play();
+    }
+}">
+    <button 
+        class="bg-gradient-to-r from-blue-400 to-blue-600 text-white font-bold py-3 px-6 rounded shadow-lg hover:bg-blue-700 transition duration-300 transform hover:scale-105" 
+        @click="randomMessage = messages[Math.floor(Math.random() * messages.length)]; playSound()">
+        Klik for perfekt uperfekt besked
+    </button>
 
-            <p class="mt-4 text-lg text-gray-800 italic" x-text="randomMessage"></p>
-        </section>
+    <p class="mt-4 text-lg text-gray-800 italic" x-text="randomMessage"></p>
+
+    <!-- Lydafspiller -->
+    <audio x-ref="trykforatafspillelyd">
+        <source src="/assets/sounds/click-sound.mp3" type="audio/mpeg">
+    </audio>
+</section>
+
+
 
         <section class="max-w-4xl mx-auto my-32 prose border border-double border-black p-8" id="hvaderstockfotos">
             <h2 class="text-2xl">Hvad er stock-fotos?</h2>
