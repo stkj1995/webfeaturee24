@@ -44,7 +44,7 @@
     transform: translateY(-20px); /* Startposition for animation */
     transition: opacity 0.5s ease, transform 0.5s ease; /* Tilføj overgang */
     z-index: 10; /* Sørg for, at det er ovenfor andre elementer */
-}
+  }
   .timelineanimation {
     animation: fadeIn 1s forwards;
   }
@@ -103,13 +103,13 @@
 
   .motion-btn {
     transition: transform 0.3s ease, opacity 0.3s ease;
-}
+  }
 
   /* Tobii mods */
+  /*Tobii mods*/
   .tobii-zoom {
     width: 100%;
   }
-
   .tobii__slide figure > img {
     padding-bottom: 50px;
   }
@@ -117,11 +117,11 @@
   .tobii {
     background-color: black;
   }
-}
 
-@layer components {
-  /* Eksempel på knapkomponent */
-  .btn {
-    @apply bg-button-bg text-white font-semibold py-2 px-4 rounded;
+  @layer components {
+    /* Eksempel på knapkomponent */
+    .btn {
+      @apply bg-button-bg text-white font-semibold py-2 px-4 rounded;
+    }
   }
 }
