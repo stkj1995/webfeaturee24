@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400&display=swap");
-@import "animate.css/animate.min.css";
+@import "./src/assets/css/animate.min.css";
+/* Brug den relative sti til din Tailwind CSS-fil */
+
 
 @tailwind base;
 @tailwind components;
@@ -34,7 +36,7 @@
 
   .timelineanimation {
     animation: fadeIn 1s forwards;
-}
+  }
 
   /* Tekstskygge */
   .text-shadow {
@@ -64,7 +66,7 @@
 
   /* Custom cursor */
   .custom-cursor {
-    cursor: url("/src/assets/images/custom-cursor.png"), auto;
+    cursor: url("../assets/images/custom-cursor.png"), auto; /* Brug relative stier her */
   }
 
   /* Progress bar styles */
