@@ -84,21 +84,32 @@ import "../styles/tobii.min.css";
                     </a>
                 </div>
                 
-                <div class="flex flex-col items-center space-y-4">
-                    <button class="text-2xl italic text-center bg-gray-800 p-8 text-white rounded-lg motion-btn" 
-                            data-animation="entrance">
-                        Pierre sælger 2 millioner fotos om året
-                    </button>
-                    <button class="text-2xl italic text-center bg-gray-800 p-8 text-white rounded-lg motion-btn" 
-                            data-animation="entrance">
-                        Det svarer til én fotolicens hvert 16. sekund
-                    </button>
-                    <button class="text-2xl italic text-center bg-gray-800 p-8 text-white rounded-lg motion-btn" 
-                            data-animation="entrance">
-                        Du ser hans fotos ca. 2 gange om dagen
-                    </button>
-                </div>
-                
+             <!-- Lydafspiller -->
+<audio x-ref="trykforatafspillelyd" id="click-sound">
+    <source src="../assets/sounds/click-sound.mp3" type="audio/mpeg">
+</audio>
+
+<div class="flex flex-col items-center space-y-4">
+    <button class="text-2xl italic text-center bg-gray-800 p-4 min-h-[100px] w-full text-white rounded-lg motion-btn" 
+            data-animation="entrance" 
+            onmouseenter="this.animate([{ transform: 'scale(1.05)' }, { transform: 'scale(1)' }], { duration: 300 })"
+            onclick="document.getElementById('click-sound').play();">
+        Pierre sælger 2 millioner fotos om året
+    </button>
+    <button class="text-2xl italic text-center bg-gray-800 p-4 min-h-[100px] w-full text-white rounded-lg motion-btn" 
+            data-animation="entrance" 
+            onmouseenter="this.animate([{ transform: 'scale(1.05)' }, { transform: 'scale(1)' }], { duration: 300 })"
+            onclick="document.getElementById('click-sound').play();">
+        Det svarer til én fotolicens hvert 16. sekund
+    </button>
+    <button class="text-2xl italic text-center bg-gray-800 p-4 min-h-[100px] w-full text-white rounded-lg motion-btn" 
+            data-animation="entrance" 
+            onmouseenter="this.animate([{ transform: 'scale(1.05)' }, { transform: 'scale(1)' }], { duration: 300 })"
+            onclick="document.getElementById('click-sound').play();">
+        Du ser hans fotos ca. 2 gange om dagen
+    </button>
+</div>
+     
             </section>
 
             <section class="max-w-4xl mx-auto my-32 prose border border-double border-black p-8" id="hvaderstockfotos">
