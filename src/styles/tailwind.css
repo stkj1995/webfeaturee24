@@ -101,6 +101,11 @@
     z-index: 10;
   }
 
+  .motion-btn {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+
   /* Tobii mods */
   .tobii-zoom {
     width: 100%;
