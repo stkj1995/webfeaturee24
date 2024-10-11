@@ -34,10 +34,38 @@ import type { TimelineSegment } from '@motionone/dom';
                 <div class="progress-bar h-full bg-gradient-to-r from-blue-400 to-purple-600" :style="{ transform: 'scaleX(' + (scrollPos / (document.body.scrollHeight - window.innerHeight)) + ')' }"></div>
             </div>
 
+            <section class="whitespace-nowrap overflow-x-hidden bg-pink-800 text-white py-4">
+                <div class="inline-block animate-infinite-scroll whitespace-nowrap [&_span]:mx-6 ">
+                    <span>UI Lir</span>
+                    <span>Fede effekter</span>
+                    <span>Flotte animationer</span>
+                    <span>Høje lyde</span>
+                    <span>Livlige og levende webløsninger</span>
+                    <span>UI & UX</span>
+                    <span>Interaktioner</span>
+                    <span>Mikroanimationer</span>
+                    <span>Mega fedt!</span>
+                    <span>Dit site bliver bedre!</span>
+                </div>
+                <div class="inline-block animate-infinite-scroll whitespace-nowrap [&_span]:mx-6 " aria-hidden="true">
+                    <span>UI Lir</span>
+                    <span>Fede effekter</span>
+                    <span>Flotte animationer</span>
+                    <span>Høje lyde</span>
+                    <span>Livlige og levende webløsninger</span>
+                    <span>UI & UX</span>
+                    <span>Interaktioner</span>
+                    <span>Mikroanimationer</span>
+                    <span>Mega fedt!</span>
+                    <span>Dit site bliver bedre!</span>
+                </div>
+            </section>
+                
             <section class="max-w-4xl mx-auto mt-52 relative" id="herovideo">
                 <video class="w-full rounded-lg shadow-lg" autoplay muted loop>
                     <source src="../assets/videos/pierre-falcke-video.mp4" type="video/mp4">
                 </video>
+
                 <!-- Lydafspiller med loop -->
                 <audio id="background-audio" loop>
                     <source src="../assets/sounds/warm-chords-loop.mp3" type="audio/mpeg">
@@ -50,14 +78,13 @@ import type { TimelineSegment } from '@motionone/dom';
             </section>      
         
             <section class="max-w-xl mx-auto mt-32 prose" id="manchet">
-                <p class="text-xl">Pierre Falcke. Du ved formentligt ikke hvem han er. Men indtil for kort tid siden, så du hans værker et par gange om dagen, hver dag, året rundt. Pierre Falcke var en af verdens bedst sælgende stock-fotografer, og han solgte over 2 millioner fotos om året. Men Pierre kunne ikke drømme om at bruge sine egne fotos - faktisk kan han ikke fordrage sit eget arbejde.</p>
                 <div class="mb-6">
                     <a href="../assets/images/pierre.jpeg" class="lightbox">
-                        <Image src={pierre} alt="" class="fotoinview rounded-lg shadow-lg" />
+                        <Image src={pierre} alt="" class="fotoinview entranceanimation rounded-lg shadow-lg" /> <!-- Tilføjet entranceanimation klasse -->
                         <figcaption class="mt-2 text-center text-sm italic text-gray-600">Pierre Falcke, selvportræt</figcaption>
                     </a>
                 </div>
-
+                
                 <p class="text-2xl italic text-center bg-gray-800 p-8 text-white rounded-lg">
                     Pierre sælger 2 millioner fotos om året
                 </p>
@@ -122,3 +149,99 @@ import type { TimelineSegment } from '@motionone/dom';
         </div>
     </div>
 </MainLayout>
+<script>
+	/* Import af Motion One biblioteket */
+    import { animate, stagger, scroll, inView as motionInView, timeline } from '@motionone/dom';
+    import type { TimelineSegment } from '@motionone/dom';
+
+    document.addEventListener('DOMContentLoaded', () => {
+        // Entrance animation
+        const entranceImage = document.querySelector('.entranceanimation');
+        const entranceObserver = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animate(entranceImage, { opacity: 1, y: 0 }, { duration: 1 });
+                    entranceObserver.unobserve(entry.target);
+                }
+            });
+        });
+
+        entranceObserver.observe(entranceImage);
+
+        // Timeline animation
+        motionInView("#timelineanimationimage", () => {
+            const timelineanimation: TimelineSegment[] = [
+                [".timelineanimation", { opacity: 1 }, { duration: 1 }],
+                [".timelineanimation", { transform: "rotate(360deg)" }, { duration: 3 }],
+                [".timelineanimation", { transform: "scale(1.5)" }, { duration: 0.5 }],
+                [".timelineanimation", { transform: "scale(1)" }, { duration: 1 }],
+                [".timelineanimation", { opacity: 0.3 }, { duration: 5 }]
+            ];
+            timeline(timelineanimation);
+        });
+
+        // Audio toggle
+        const audio = document.getElementById('background-audio') as HTMLAudioElement; // Typecast til HTMLAudioElement
+        const toggleButton = document.getElementById('toggle-sound') as HTMLButtonElement; // Typecast til HTMLButtonElement
+        let isAudioPlaying = false;
+
+        toggleButton.addEventListener('click', () => {
+            if (isAudioPlaying) {
+                audio.pause();
+                toggleButton.textContent = 'Slå lyd til';
+            } else {
+                audio.play().then(() => {
+                    toggleButton.textContent = 'Slå lyd fra';
+                }).catch((error) => {
+                    console.log("Lyden kunne ikke starte:", error);
+                    toggleButton.textContent = 'Slå lyd til'; // Reset button text if play fails
+                });
+            }
+            isAudioPlaying = !isAudioPlaying;
+        });
+
+        // Header animation
+        motionInView('#entrance-header', ({ target }) => {
+            animate(target, { opacity: 1, y: 0 }, { duration: 1 });
+        });
+
+        // inView animations
+        motionInView(".fotoinview", () => {
+            animate(".fotoinview", { x: [-2000, 0] }, { duration: 3 });
+        });
+
+        const imageElements = document.querySelectorAll('.staggered-image');
+        imageElements.forEach((image, index) => {
+            motionInView(image, () => {
+                animate(
+                    image,
+                    { opacity: [0, 1], transform: ['translateY(50px)', 'translateY(0)'] },
+                    { duration: 1, delay: index * 0.3 }
+                );
+            });
+        });
+
+        // inView animation for header and description
+        motionInView('#entrance-header', ({ target }) => {
+            animate(target, { opacity: 1, y: 0 }, { duration: 1 });
+        });
+        motionInView('#entrance-description', ({ target }) => {
+            animate(target, { opacity: 1, y: 0 }, { duration: 1 });
+        });
+
+        // inView & return animation for a specific element
+        motionInView(".inviewreturn", ({ target }) => {
+            animate(
+                target,
+                { rotate: [180, 0] },
+                { delay: 1, duration: 2 },
+            );
+            return () => {
+                animate(
+                    target,
+                    { rotate: 180 }
+                );
+            }
+        });
+    });
+</script>
