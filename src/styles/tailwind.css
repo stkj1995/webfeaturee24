@@ -105,6 +105,24 @@
     transition: transform 0.3s ease, opacity 0.3s ease;
   }
 
+  @keyframes colorChange {
+    0% {
+        background: rgba(0, 123, 255, 0.8);
+    }
+    50% {
+        background: rgba(255, 20, 147, 0.8);
+    }
+    100% {
+        background: rgba(0, 123, 255, 0.8);
+    }
+}
+
+#pulsing-border {
+    animation: colorChange 3s infinite; /* Skifter farve hver 3 sekunder */
+    /* Behold resten af stilen fra før */
+}
+
+
   /*Tobii mods*/
   .tobii-zoom {
     width: 100%;

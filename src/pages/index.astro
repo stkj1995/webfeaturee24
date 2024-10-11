@@ -25,7 +25,7 @@ import "../styles/tobii.min.css";
         <div x-data="{ scrollPos: 0, showProgressBar: false, messages: ['Besked 1', 'Besked 2', 'Besked 3'], randomMessage: '' }" @scroll.window="scrollPos = window.scrollY; showProgressBar = scrollPos > 0">
             <div 
                 :class="scrollPos > 200 ? 'bg-gradient-to-r from-pink-500 to-yellow-300 text-white' : 'bg-white text-gray-800'" 
-                class="transition-all duration-300 min-h-screen mt-16"
+                class="transition-all duration-300 min-h-screen flex flex-col"
             >
                 <!-- Progress Bar -->
                 <div x-show="showProgressBar" class="progress-container fixed top-0 left-0 w-full h-2 bg-transparent z-50">
@@ -75,7 +75,7 @@ import "../styles/tobii.min.css";
                     </button>
                 </section>
 
-                <section class="max-w-xl mx-auto mt-20 prose" id="manchet">
+                <section class="max-w-2xl mx-auto mt-20 prose" id="manchet">
                     <p class="text-xl">Pierre Falcke. Du ved formentligt ikke hvem han er. Men indtil for kort tid siden, så du hans værker et par gange om dagen, hver dag, året rundt. Pierre Falcke var en af verdens bedst sælgende stock-fotografer, og han solgte over 2 millioner fotos om året. Men Pierre kunne ikke drømme om at bruge sine egne fotos - faktisk kan han ikke fordrage sit eget arbejde.</p>
                     
                     <div class="mb-24">
@@ -98,7 +98,7 @@ import "../styles/tobii.min.css";
                     <source src="../assets/sounds/african_drum.mp3" type="audio/mpeg">
                 </audio>
 
-                <div class="flex flex-col items-center space-y-4">
+                <div class="flex flex-col items-center space-y-4 mb-10">
                     <button class="text-2xl italic text-center p-4 min-h-[100px] w-full text-white rounded-lg motion-btn bg-gradient-to-r from-blue-500 to-purple-500" 
                             data-animation="entrance" 
                             onmouseenter="this.animate([{ transform: 'scale(1.05)' }, { transform: 'scale(1)' }], { duration: 300 })"
@@ -118,10 +118,11 @@ import "../styles/tobii.min.css";
                         Du ser hans fotos ca. 2 gange om dagen
                     </button>
                 </div>
+                </section>
                 
-                <section class="max-w-4xl mx-auto my-32 prose border border-double border-black p-8" id="hvaderstockfotos">
-                    <h2 class="text-2xl mb-6">Hvad er stock-fotos?</h2>
-                    <div class="grid grid-cols-3 gap-8"> <!-- Ændret gap fra 4 til 8 -->
+                <section class="max-w-4xl mx-auto my-20 prose border border-double border-black p-8" id="hvaderstockfotos">
+                    <h2 class="text-2xl mb-4">Hvad er stock-fotos?</h2>
+                    <div class="grid grid-cols-3 gap-8"> 
                         <div>
                             <p class="mb-4">Stock-fotos er billeder, der kan købes fra et foto-website. De bruges af aviser, til markedsføring og som indhold på websites. En licens til at bruge et foto koster typisk mellem 10 og 100 kroner, alt afhængig af hvad de skal bruges til.</p>
                             <Image src={arbejde} alt="En person, der arbejder ved en computer" class="staggered-image rounded-lg shadow-lg mb-6 w-full h-auto"/> <!-- Tilføjet w-full og h-auto for at gøre billederne større -->
@@ -137,7 +138,7 @@ import "../styles/tobii.min.css";
                     </div>
                 </section>          
 
-                <section class="max-w-xl mx-auto mt-32 prose" id="pierresberoemmelse">
+                <section class="max-w-xl mx-auto prose my-10" id="pierresberoemmelse">
                     <h2 class="text-4xl">Pierres berømmelse</h2>
                     <p>Pierres interesse for foto startede som ganske ung - som 10-årig fik han sin fars gamle Rollei-kamera, og begyndte at skyde løs. Det var før den digitale revolution, så alle Pierres lommepenge blev brugt på filmruller og fremkaldelse af film. Pierre fortsatte med at fotografere på film op gennem gymnasietiden.</p>
                     <p>Pierre over til digital fotografering i starten af 2000’erne, da han begyndte at studere fotografisk kommunikation på DMJX. Her åbnede en ny verden sig: Reklamefotografering i studie, lyssætning og manipulering af billeder i Photoshop blev hans nye stil. </p>
@@ -147,28 +148,29 @@ import "../styles/tobii.min.css";
                     </p>
                 </section>
 
+                <div id="pulsing-border" class="h-2 my-8"></div>
+
                 <section id="enskillevej">
-                    <div class="max-w-xl mx-auto mt-32 prose">
+                    <div class="max-w-xl mx-auto mt-16 mb-10 prose">
                         <h2 class="text-4xl">En skillevej</h2>
                         <p>Pierre tjente godt det følgende årti. Men stille og roligt begyndte billederne også at give ham kvalme. Han kunne ikke holde sit eget arbejde ud, og måtte finde et modsvar til alle de blankpolerede fotos. Noget han kunne lave med stolthed. Pierre bestluttede sig for at droppe stock-fotos, og vende tilbage til rødderne.</p>
                         <p>Han søgte inspiration i analog fotografering, i Lomo-bevægelsen, Glitch art og polaroid fotografering, og begyndte stille og roligt at skabe sig en ny stil - en stil med fokus på det uperfekte, og hvor der er et uforudsigeligt element i det at tage billeder.</p>
+                        <p>Pierre tog det endda så vidt at han ikke kun droppede at tage stock-fotos. Han fjernede også alle stock-fotos fra de tjenester, han solgte sine fotos hos. Han gik fra at være en god forretningsdrivende til at blive en vaskeægte boheme-type på rekordtid.</p>
                     </div>
-
+                </section>
+                
                 <section class="grid grid-cols-1 md:grid-cols-2 mt-10">
                     <div class="bg-gray-800 p-4 shadow-lg">
                         <Image src={glitch} alt="Glitch kunst" class="staggered-image rounded-lg shadow-lg mb-4"/>
                         <figcaption>Glitch kunst</figcaption>
-                        </div>
+                    </div>
                     <div class="bg-gray-800 p-4 shadow-lg">
                         <Image src={smena} alt="Smena kamera" class="staggered-image rounded-lg shadow-lg mb-4"/>
                         <figcaption>Dobbelteksponering med Smena</figcaption>
                     </div>        
-                    <div class="max-w-xl mx-auto prose">
-                        <p>Pierre tog det endda så vidt at han ikke kun droppede at tage stock-fotos. Han fjernede også alle stock-fotos fra de tjenester, han solgte sine fotos hos. Han gik fra at være en god forretningsdrivende til at blive en vaskeægte boheme-type på rekordtid.</p>
-                    </div>     
-                </section>      
-                
-                <section class="max-w-4xl mx-auto my-32 prose border border-double border-black p-8" id="fotoeksperimenter">
+                </section>
+                                    
+                <section class="max-w-4xl mx-auto my-20 prose border border-double border-black p-8" id="fotoeksperimenter">
                     <h2 class="text-2xl">Fotoeksperimenter</h2>
                     <div class="grid grid-cols-3 gap-4">
                         <div>
@@ -190,32 +192,31 @@ import "../styles/tobii.min.css";
                 </section>
 
                 <section id="nybegyndelse">
-                    <div class="max-w-xl mx-auto my-32 prose">
+                    <div class="max-w-xl mx-auto mt-16 mb-10 prose">
                         <h2 class="text-4xl">En ny begyndelse</h2>
-                        <p>Men Pierre er glad for sin beslutning. Indkomsten er lavere nu, men han har stadig lidt penge på kontoen, og studerer nu kunstfotografering på fotoskolen Fatamorgana. Han glæder sig over hver dags kunstneriske eksperimenter, og er for første gang i sit liv rigtig stolt af sit arbejde. Som Pierre selv udtrykker det: <span class="italic">“Det interessante ligger i fejlen. Et foto med masser af fejl er interessant. Jeg eksperimenterer med udstyr og teknik, og skaber nye visuelle udtryk. Det uperfekte er perfekt.”</span></p>
-                    </div>
-                    <section class="grid grid-cols-1 md:grid-cols-2 mt-10">
-                        <div class="bg-gray-800 p-4 shadow-lg">
-                            <Image src={overouticm} alt="Uperfekt billede - Overexposure" class="staggered-image rounded-lg shadow-lg mb-4"/>
-                            <figcaption>Overeksponeret og ude af fokus</figcaption>
-                        </div>
-                        <div class="bg-gray-800 p-4 shadow-lg">
-                            <Image src={tyndfilm} alt="Uperfekt billede - Tynd film" class="staggered-image rounded-lg shadow-lg mb-4"/>
-                            <figcaption>Tynd film</figcaption>
-                        </div>      
-                    </div>
-
-                    <div class="max-w-xl mx-auto my-32 prose">
-                        <p>Karrieren begynder også så småt også at gå den rette vej: Pierre er begyndt at sælge fotokunst på nettet, og har udgivet sin første foto-bog med titlen “Lidt i fem,” som er en fotografisk odyssé om at slæbe en brandert hjem i de tidlige morgentimer. I forbindelse med udgivelsen af bogen, har han en udstilling på vej i det Kongelige Biblioteks fotoudstilling.</p>
-                        <p>Som Pierre forklarer det: <span class="italic">“Nu kan jeg leve livet igen. Jeg føler mig frisk. Jeg føler mig fri. Jeg føler mig genfødt.”</span></p>			
-                        <div>
-                            <a href="lidtifem-pierre-falcke.jpg" class="lightbox">
-                                <Image src={lidtifem} alt="" class="my-0" />
-                                <figcaption>Lidt i fem - ny bog af Pierre Falcke</figcaption>
-                            </a>			
-                        </div>
+                        <p>Men Pierre er glad for sin beslutning. Indkomsten er lavere nu, men han har stadig lidt penge på kontoen, og studerer nu kunstfotografering på fotoskolen Fatamorgana. Han glæder sig over hver dags kunstneriske eksperimenter, og er for første gang i sit liv rigtig stolt af sit arbejde. Som Pierre selv udtrykker det: <span class="italic">“Det interessante ligger i fejlen. Et foto med masser af fejl er interessant. Jeg eksperimenterer med udstyr og teknik, og skaber nye visuelle udtryk. Det uperfekte er perfekt.”</span></p>		
                     </div>
                 </section>  
+                    
+                <section class="grid grid-cols-1 md:grid-cols-2 mt-10">
+                    <div class="bg-gray-800 p-4 shadow-lg">
+                        <Image src={overouticm} alt="Uperfekt billede - Overexposure" class="staggered-image rounded-lg shadow-lg mb-4"/>
+                        <figcaption>Overeksponeret og ude af fokus</figcaption>
+                    </div>
+                    <div class="bg-gray-800 p-4 shadow-lg">
+                        <Image src={tyndfilm} alt="Uperfekt billede - Tynd film" class="staggered-image rounded-lg shadow-lg mb-4"/>
+                        <figcaption>Tynd film</figcaption>
+                    </div>      
+                </section>
+
+                <section class="max-w-xl mx-auto my-16 prose">
+                    <p>Karrieren begynder også så småt også at gå den rette vej: Pierre er begyndt at sælge fotokunst på nettet, og har udgivet sin første foto-bog med titlen “Lidt i fem,” som er en fotografisk odyssé om at slæbe en brandert hjem i de tidlige morgentimer. I forbindelse med udgivelsen af bogen, har han en udstilling på vej i det Kongelige Biblioteks fotoudstilling.</p>
+                    <p>Som Pierre forklarer det: <span class="italic">“Nu kan jeg leve livet igen. Jeg føler mig frisk. Jeg føler mig fri. Jeg føler mig genfødt.”</span></p>	
+                    <a href="lidtifem-pierre-falcke.jpg" class="lightbox scrollzoom overflow-clip">
+                        <Image src={lidtifem} alt="Billede af bog" class="scrollzoomimg w-full" />
+                        <figcaption>Lidt i fem - ny bog af Pierre Falcke</figcaption>
+                    </a>			
+                </section>
             </div>
         </div>
 </article>
@@ -243,6 +244,17 @@ import "../styles/tobii.min.css";
             });
         });
         entranceObserver.observe(entranceImage);
+
+        // Scroll zoom animation for an image
+        scroll(
+            animate(".scrollzoomimg", { 
+                scale: [1, 1.5]    
+            }),
+            { 
+                target: document.querySelector(".scrollzoom"),
+                offset: ["0.75 end", "end end"]
+            }
+        );
 
         // Timeline animation
         motionInView("#timelineanimationimage", () => {
@@ -323,7 +335,7 @@ import "../styles/tobii.min.css";
             }
         });
 
-        // Knapp animations
+        // Knap animations
         const buttons = document.querySelectorAll('.motion-btn');
         buttons.forEach((button, index) => {
             // Entrance animation
