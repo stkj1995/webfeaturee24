@@ -204,24 +204,31 @@ import type { TimelineSegment } from '@motionone/dom';
             isAudioPlaying = !isAudioPlaying;
         });
 
-        // Header animation
-        motionInView('#entrance-header', ({ target }) => {
-            // Initial style adjustments
-            target.style.opacity = 0;
-            target.style.transform = 'translateY(-20px)';
+     // Header animation
+motionInView('#entrance-header', ({ target }) => {
+    // Typecast target to HTMLElement
+    const element = target as HTMLElement;
 
-            // Animate when in view
-            animate(target, { opacity: 1, y: 0 }, { duration: 1 });
-        });
+    // Initial style adjustments
+    element.style.opacity = '0';
+    element.style.transform = 'translateY(-20px)';
 
-        // inView animations for description
-        motionInView('#entrance-description', ({ target }) => {
-            target.style.opacity = 0; // Initial style adjustments
-            target.style.transform = 'translateY(-20px)'; // Initial position
+    // Animate when in view
+    animate(element, { opacity: 1, y: 0 }, { duration: 1 });
+});
 
-            // Animate when in view
-            animate(target, { opacity: 1, y: 0 }, { duration: 1 });
-        });
+// inView animations for description
+motionInView('#entrance-description', ({ target }) => {
+    // Typecast target to HTMLElement
+    const element = target as HTMLElement;
+
+    // Initial style adjustments
+    element.style.opacity = '0'; // Initial style adjustments
+    element.style.transform = 'translateY(-20px)'; // Initial position
+
+    // Animate when in view
+    animate(element, { opacity: 1, y: 0 }, { duration: 1 });
+});
 
         // Additional inView animations
         motionInView(".fotoinview", () => {
