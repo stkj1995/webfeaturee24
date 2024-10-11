@@ -32,15 +32,12 @@
     color: var(--dark-blue);
   }
 
-  #background-video {
-    position: absolute;
-    top: 0;
-    left: 0;
+  #herovideo video {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    z-index: -1;
-  }
+    object-fit: cover; /* Betyder, at videoen fylder hele området uden at ændre aspektforholdet */
+    border-radius: 0.5rem; /* Ensartet hjørner, hvis du ønsker det */
+}
 
   #entrance-header {
     opacity: 0; /* Start usynlig */
