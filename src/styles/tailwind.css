@@ -44,8 +44,7 @@
     transform: translateY(-20px); /* Startposition for animation */
     transition: opacity 0.5s ease, transform 0.5s ease; /* Tilføj overgang */
     z-index: 10; /* Sørg for, at det er ovenfor andre elementer */
-  }
-
+}
   .timelineanimation {
     animation: fadeIn 1s forwards;
   }

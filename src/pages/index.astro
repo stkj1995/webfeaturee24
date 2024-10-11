@@ -154,7 +154,7 @@ import type { TimelineSegment } from '@motionone/dom';
 </MainLayout>
 
 <script>
-	/* Import af Motion One biblioteket */
+    /* Import af Motion One biblioteket */
     import { animate, stagger, scroll, inView as motionInView, timeline } from '@motionone/dom';
     import type { TimelineSegment } from '@motionone/dom';
 
@@ -185,8 +185,8 @@ import type { TimelineSegment } from '@motionone/dom';
         });
 
         // Audio toggle
-        const audio = document.getElementById('background-audio') as HTMLAudioElement; // Typecast til HTMLAudioElement
-        const toggleButton = document.getElementById('toggle-sound') as HTMLButtonElement; // Typecast til HTMLButtonElement
+        const audio = document.getElementById('background-audio') as HTMLAudioElement;
+        const toggleButton = document.getElementById('toggle-sound') as HTMLButtonElement;
         let isAudioPlaying = false;
 
         toggleButton.addEventListener('click', () => {
@@ -206,10 +206,24 @@ import type { TimelineSegment } from '@motionone/dom';
 
         // Header animation
         motionInView('#entrance-header', ({ target }) => {
+            // Initial style adjustments
+            target.style.opacity = 0;
+            target.style.transform = 'translateY(-20px)';
+
+            // Animate when in view
             animate(target, { opacity: 1, y: 0 }, { duration: 1 });
         });
 
-        // inView animations
+        // inView animations for description
+        motionInView('#entrance-description', ({ target }) => {
+            target.style.opacity = 0; // Initial style adjustments
+            target.style.transform = 'translateY(-20px)'; // Initial position
+
+            // Animate when in view
+            animate(target, { opacity: 1, y: 0 }, { duration: 1 });
+        });
+
+        // Additional inView animations
         motionInView(".fotoinview", () => {
             animate(".fotoinview", { x: [-2000, 0] }, { duration: 3 });
         });
@@ -223,14 +237,6 @@ import type { TimelineSegment } from '@motionone/dom';
                     { duration: 1, delay: index * 0.3 }
                 );
             });
-        });
-
-        // inView animation for header and description
-        motionInView('#entrance-header', ({ target }) => {
-            animate(target, { opacity: 1, y: 0 }, { duration: 1 });
-        });
-        motionInView('#entrance-description', ({ target }) => {
-            animate(target, { opacity: 1, y: 0 }, { duration: 1 });
         });
 
         // inView & return animation for a specific element
