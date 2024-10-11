@@ -1,7 +1,5 @@
+@import "animate.css/animate.min.css"; 
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400&display=swap");
-@import "./src/assets/css/animate.min.css";
-/* Brug den relative sti til din Tailwind CSS-fil */
-
 
 @tailwind base;
 @tailwind components;
