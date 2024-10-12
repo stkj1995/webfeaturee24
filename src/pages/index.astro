@@ -58,23 +58,6 @@ import "../styles/tobii.min.css";
                         <span>Dit site bliver bedre!</span>
                     </div>
                 </section>
-
-                <section class="flex items-center justify-center min-h-screen">
-                    <div class="group perspective w-64 h-80 m-4">
-                        <div class="relative preserve-3d w-full h-full transition-transform duration-700 group-hover:rotate-y-180">
-                            <!-- Front Side -->
-                            <div class="absolute inset-0 flex items-center justify-center bg-blue-500 text-white backface-hidden p-4">
-                                <h2 class="text-2xl font-extrabold shadow-lg">
-                            </div>
-                            <!-- Back Side -->
-                            <div class="absolute inset-0 flex items-center justify-center bg-pink-500 text-white backface-hidden rotate-y-180 p-4">
-                                <div class="rotate-y-180">
-                                    <h2 class="text-2xl font-extrabold">🎉 Surprise Me!</h2>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
                 
                 <section id="videoonhover" class="max-w-4xl mx-auto mt-44 relative" x-ref="herovideo">
                     <video class="w-full rounded-lg shadow-lg transition-transform duration-300" autoplay muted loop @mouseenter="$refs.hovervideo.play()" 
@@ -188,7 +171,7 @@ import "../styles/tobii.min.css";
                     </div>        
                 </section>
                                     
-                <section class="max-w-4xl mx-auto my-20 prose border border-double border-black p-8" id="fotoeksperimenter">
+                <section class="max-w-4xl mx-auto mt-10 mb-16 prose border border-double border-black p-8" id="fotoeksperimenter">
                     <h2 class="text-2xl">Fotoeksperimenter</h2>
                     <div class="grid grid-cols-3 gap-4">
                         <div>
@@ -209,6 +192,39 @@ import "../styles/tobii.min.css";
                     </div>
                 </section>
 
+                <section class="flex items-center justify-center my-28">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="group perspective w-64 h-80">
+                            <div class="relative preserve-3d w-full h-full transition-transform duration-700 group-hover:rotate-y-180">
+                                <!-- Front Side -->
+                                <div class="absolute inset-0 flex items-center justify-center bg-pink-500 text-white backface-hidden p-4">
+                                </div>
+                                <!-- Back Side -->
+                                <div class="absolute inset-0 flex items-center justify-center bg-blue-500 text-white backface-hidden rotate-y-180 p-4">
+                                    <div class="rotate-y-180">
+                                        <h2 class="text-3xl font-extrabold text-white">🎉 Surprise!</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <!-- Kopi af det første kort -->
+                        <div class="group perspective w-64 h-80">
+                            <div class="relative preserve-3d w-full h-full transition-transform duration-700 group-hover:rotate-y-180">
+                                <!-- Front Side -->
+                                <div class="absolute inset-0 flex items-center justify-center bg-blue-500 text-white backface-hidden p-4">
+                                </div>
+                                <!-- Back Side -->
+                                <div class="absolute inset-0 flex items-center justify-center bg-pink-500 text-white backface-hidden rotate-y-180 p-4">
+                                    <div class="rotate-y-180">
+                                        <h2 class="text-3xl font-extrabold text-black">✨ Delight!</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            
                 <section id="nybegyndelse">
                     <div class="max-w-xl mx-auto mt-10 mb-10 prose">
                         <h2 class="text-4xl">En ny begyndelse</h2>
