@@ -264,12 +264,15 @@ import "../styles/tobii.min.css";
 
                 <section class="max-w-xl mx-auto my-16 prose">
                     <p>Karrieren begynder også så småt også at gå den rette vej: Pierre er begyndt at sælge fotokunst på nettet, og har udgivet sin første foto-bog med titlen “Lidt i fem,” som er en fotografisk odyssé om at slæbe en brandert hjem i de tidlige morgentimer. I forbindelse med udgivelsen af bogen, har han en udstilling på vej i det Kongelige Biblioteks fotoudstilling.</p>
-                    <p>Som Pierre forklarer det: <span class="italic">“Nu kan jeg leve livet igen. Jeg føler mig frisk. Jeg føler mig fri. Jeg føler mig genfødt.”</span></p>	
-                    <a href="lidtifem-pierre-falcke.jpg" class="lightbox scrollzoom overflow-clip">
-                        <Image src={lidtifem} alt="Billede af bog" class="scrollzoomimg w-full" />
+                    <p>Som Pierre forklarer det: <span class="italic">“Nu kan jeg leve livet igen. Jeg føler mig frisk. Jeg føler mig fri. Jeg føler mig genfødt.”</span></p>    
+                    <a href="lidtifem-pierre-falcke.jpg" class="lightbox scrollzoom overflow-clip relative block">
+                        <div class="relative overflow-hidden"> <!-- Sørg for at containeren er relativ og har overflow:hidden -->
+                            <Image src={lidtifem} alt="Billede af bog" class="scrollzoomimg w-full z-0 filter brightness-75 grayscale transition-transform duration-300 hover:scale-110" />
+                            <div class="absolute inset-0 bg-gradient-to-r from-red-500 via-yellow-500 to-blue-500 opacity-0 transition-opacity duration-300 hover:opacity-75"></div> <!-- Farverig gradient overlay med hover -->
+                        </div>
                         <figcaption>Lidt i fem - ny bog af Pierre Falcke</figcaption>
-                    </a>			
-                </section>
+                    </a>            
+                </section>                           
             </div>
         </div>
 </article>

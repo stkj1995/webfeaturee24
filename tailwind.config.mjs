@@ -15,6 +15,9 @@ export default {
             rotate: {
                 'y-180': '180deg', // Tilføj roteringsklasse
             },
+            backgroundImage: {
+                'gradient-to-b': 'linear-gradient(to bottom, transparent, black)', // Tilføj gradient
+            },
         },
     },
     plugins: [
