@@ -79,7 +79,7 @@ import "../styles/tobii.min.css";
                 <section class="max-w-2xl mx-auto mt-20 prose" id="manchet">
                     <p class="text-xl">Pierre Falcke. Du ved formentligt ikke hvem han er. Men indtil for kort tid siden, så du hans værker et par gange om dagen, hver dag, året rundt. Pierre Falcke var en af verdens bedst sælgende stock-fotografer, og han solgte over 2 millioner fotos om året. Men Pierre kunne ikke drømme om at bruge sine egne fotos - faktisk kan han ikke fordrage sit eget arbejde.</p>
                     
-                    <div class="mb-24">
+                    <div class="mb-48">
                         <a href="../assets/images/pierre.jpeg" class="lightbox">
                             <Image src={pierre} alt="Selvportræt af Pierre Falcke" class="fotoinview entranceanimation rounded-lg shadow-lg" />
                             <figcaption class="mt-2 text-center text-sm italic text-gray-600">Pierre Falcke, selvportræt</figcaption>
@@ -98,58 +98,34 @@ import "../styles/tobii.min.css";
                 <audio id="click-sound-3">
                     <source src="../assets/sounds/african_drum.mp3" type="audio/mpeg">
                 </audio>
-
-                <!-- <div class="flex flex-col items-center space-y-4 mb-10">
-                    <button class="text-2xl italic text-center p-4 min-h-[100px] w-full text-white rounded-lg motion-btn bg-gradient-to-r from-blue-500 to-purple-500" 
-                            data-animation="entrance" 
-                            onmouseenter="this.animate([{ transform: 'scale(1.05)' }, { transform: 'scale(1)' }], { duration: 300 })"
-                            onclick="document.getElementById('click-sound-1').play();">
-                        Pierre sælger 2 millioner fotos om året
-                    </button>
-                    <button class="text-2xl italic text-center p-4 min-h-[100px] w-full text-white rounded-lg motion-btn bg-gradient-to-r from-green-400 to-blue-500" 
-                            data-animation="entrance" 
-                            onmouseenter="this.animate([{ transform: 'scale(1.05)' }, { transform: 'scale(1)' }], { duration: 300 })"
-                            onclick="document.getElementById('click-sound-2').play();">
-                        Det svarer til én fotolicens hvert 16. sekund
-                    </button>
-                    <button class="text-2xl italic text-center p-4 min-h-[100px] w-full text-white rounded-lg motion-btn bg-gradient-to-r from-red-500 to-yellow-600" 
-                            data-animation="entrance" 
-                            onmouseenter="this.animate([{ transform: 'scale(1.05)' }, { transform: 'scale(1)' }], { duration: 300 })"
-                            onclick="document.getElementById('click-sound-3').play();">
-                        Du ser hans fotos ca. 2 gange om dagen
-                    </button>
-                </div> -->
-                <div class="flex flex-col items-center space-y-4 mb-10 sticky top-1/4 z-10">
-                    <!-- Baggrundsbillede -->
-                    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('../assets/images/pierre.jpeg'); height: 100vh; width: 100vw;"></div>
-                    <div class="relative z-20">
-                        <button class="text-2xl italic text-center p-4 min-h-[100px] w-full text-white rounded-lg motion-btn bg-gradient-to-r from-blue-500 to-purple-500" 
-                                data-animation="entrance" 
-                                onmouseenter="this.animate([{ transform: 'scale(1.05)' }, { transform: 'scale(1)' }], { duration: 300 })"
-                                onclick="document.getElementById('click-sound-1').play();">
-                            Pierre sælger 2 millioner fotos om året
-                        </button>
-                        <button class="text-2xl italic text-center p-4 min-h-[100px] w-full text-white rounded-lg motion-btn bg-gradient-to-r from-green-400 to-blue-500" 
-                                data-animation="entrance" 
-                                onmouseenter="this.animate([{ transform: 'scale(1.05)' }, { transform: 'scale(1)' }], { duration: 300 })"
-                                onclick="document.getElementById('click-sound-2').play();">
-                            Det svarer til én fotolicens hvert 16. sekund
-                        </button>
-                        <button class="text-2xl italic text-center p-4 min-h-[100px] w-full text-white rounded-lg motion-btn bg-gradient-to-r from-red-500 to-yellow-600" 
-                                data-animation="entrance" 
-                                onmouseenter="this.animate([{ transform: 'scale(1.05)' }, { transform: 'scale(1)' }], { duration: 300 })"
-                                onclick="document.getElementById('click-sound-3').play();">
-                            Du ser hans fotos ca. 2 gange om dagen
-                        </button>
-                    </div>
-                </div>
-                
-                
-                
-                
                 </section>
+            
+                <section>
+                    <div class="flex items-center h-screen w-100 bg-cover bg-center" style="background-image: url('src/assets/images/billigt-objektiv.jpg'); transform: scale(1.05);" >
+                        <div class="w-3/4 lg:w-1/2 mx-auto space-y-4 p-10 sticky top-1/4">
+                            <button class="text-2xl italic text-center my-10 p-4 min-h-[100px] w-full text-white rounded-lg motion-btn bg-gradient-to-r from-blue-500 to-purple-500 shadow transition-all duration-300 transform hover:scale-105" 
+                                    data-animation="entrance" 
+                                    onmouseenter="this.animate([{ transform: 'scale(1.05)' }, { transform: 'scale(1)' }], { duration: 300 })"
+                                    onclick="document.getElementById('click-sound-1').play();">
+                                Pierre sælger 2 millioner fotos om året
+                            </button>
+                            <button class="text-2xl italic text-center my-10 p-4 min-h-[100px] w-full text-white rounded-lg motion-btn bg-gradient-to-r from-green-400 to-blue-500 shadow transition-all duration-300 transform hover:scale-105" 
+                                    data-animation="entrance" 
+                                    onmouseenter="this.animate([{ transform: 'scale(1.05)' }, { transform: 'scale(1)' }], { duration: 300 })"
+                                    onclick="document.getElementById('click-sound-2').play();">
+                                Det svarer til én fotolicens hvert 16. sekund
+                            </button>
+                            <button class="text-2xl italic text-center my-10 p-4 min-h-[100px] w-full text-white rounded-lg motion-btn bg-gradient-to-r from-red-500 to-yellow-600 shadow transition-all duration-300 transform hover:scale-105" 
+                                    data-animation="entrance" 
+                                    onmouseenter="this.animate([{ transform: 'scale(1.05)' }, { transform: 'scale(1)' }], { duration: 300 })"
+                                    onclick="document.getElementById('click-sound-3').play();">
+                                Du ser hans fotos ca. 2 gange om dagen
+                            </button>
+                        </div>
+                    </div>
+                </section>                              
                 
-                <section class="max-w-4xl mx-auto my-20 prose border border-double border-black p-8" id="hvaderstockfotos">
+                <section class="max-w-4xl mx-auto mt-20 prose border border-double border-black p-8" id="hvaderstockfotos">
                     <h2 class="text-2xl mb-4">Hvad er stock-fotos?</h2>
                     <div class="grid grid-cols-3 gap-8"> 
                         <div>
@@ -167,7 +143,7 @@ import "../styles/tobii.min.css";
                     </div>
                 </section>          
 
-                <section class="max-w-xl mx-auto prose my-10" id="pierresberoemmelse">
+                <section class="max-w-xl mx-auto prose my-10 mt-32" id="pierresberoemmelse">
                     <h2 class="text-4xl">Pierres berømmelse</h2>
                     <p>Pierres interesse for foto startede som ganske ung - som 10-årig fik han sin fars gamle Rollei-kamera, og begyndte at skyde løs. Det var før den digitale revolution, så alle Pierres lommepenge blev brugt på filmruller og fremkaldelse af film. Pierre fortsatte med at fotografere på film op gennem gymnasietiden.</p>
                     <p>Pierre over til digital fotografering i starten af 2000’erne, da han begyndte at studere fotografisk kommunikation på DMJX. Her åbnede en ny verden sig: Reklamefotografering i studie, lyssætning og manipulering af billeder i Photoshop blev hans nye stil. </p>
@@ -429,6 +405,17 @@ import "../styles/tobii.min.css";
             observer.observe(button);
         });
 
+        // Scroll event for shadow effect
+        window.addEventListener('scroll', () => {
+            buttons.forEach(button => {
+                if (button.getBoundingClientRect().top <= 0) {
+                    button.classList.add('shadow-lg');
+                } else {
+                    button.classList.remove('shadow-lg');
+                }
+            });
+        });
+
         // Flip card animation
         const flipCard = document.querySelector('.group');
         if (flipCard) {
@@ -442,3 +429,4 @@ import "../styles/tobii.min.css";
         }
     });
 </script>
+
