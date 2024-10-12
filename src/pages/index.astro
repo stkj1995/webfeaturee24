@@ -12,6 +12,10 @@ import smena from "../assets/images/lomo-smena-17.jpg";
 import overouticm from "../assets/images/over-out-icm.jpeg"; 
 import pierre from "../assets/images/pierre.jpeg"; 
 import tyndfilm from "../assets/images/tynd-film.jpg"; 
+import gammelfilm from "../assets/images/gammel-film.jpg";
+import billigtobjektiv from "../assets/images/billigt-objektiv.jpg";
+import canoneos from "../assets/images/canon-eos-300-gammel-film.jpg";
+import scan from "../assets/images/scan.jpg";
 import "../styles/tobii.min.css"; 
 ---
 
@@ -103,19 +107,19 @@ import "../styles/tobii.min.css";
                 <section>
                     <div class="flex items-center h-screen w-100 bg-cover bg-center" style="background-image: url('src/assets/images/billigt-objektiv.jpg'); transform: scale(1.05);" >
                         <div class="w-3/4 lg:w-1/2 mx-auto space-y-4 p-10 sticky top-1/4">
-                            <button class="text-2xl italic text-center my-10 p-4 min-h-[100px] w-full text-white rounded-lg motion-btn bg-gradient-to-r from-blue-500 to-purple-500 shadow transition-all duration-300 transform hover:scale-105" 
+                            <button class="text-2xl italic text-center p-4 min-h-[100px] w-full text-white rounded-lg motion-btn bg-gradient-to-r from-blue-500 to-purple-500 shadow transition-all duration-300 transform hover:scale-105" 
                                     data-animation="entrance" 
                                     onmouseenter="this.animate([{ transform: 'scale(1.05)' }, { transform: 'scale(1)' }], { duration: 300 })"
                                     onclick="document.getElementById('click-sound-1').play();">
                                 Pierre sælger 2 millioner fotos om året
                             </button>
-                            <button class="text-2xl italic text-center my-10 p-4 min-h-[100px] w-full text-white rounded-lg motion-btn bg-gradient-to-r from-green-400 to-blue-500 shadow transition-all duration-300 transform hover:scale-105" 
+                            <button class="text-2xl italic text-center p-4 min-h-[100px] w-full text-white rounded-lg motion-btn bg-gradient-to-r from-green-400 to-blue-500 shadow transition-all duration-300 transform hover:scale-105" 
                                     data-animation="entrance" 
                                     onmouseenter="this.animate([{ transform: 'scale(1.05)' }, { transform: 'scale(1)' }], { duration: 300 })"
                                     onclick="document.getElementById('click-sound-2').play();">
                                 Det svarer til én fotolicens hvert 16. sekund
                             </button>
-                            <button class="text-2xl italic text-center my-10 p-4 min-h-[100px] w-full text-white rounded-lg motion-btn bg-gradient-to-r from-red-500 to-yellow-600 shadow transition-all duration-300 transform hover:scale-105" 
+                            <button class="text-2xl italic text-center p-4 min-h-[100px] w-full text-white rounded-lg motion-btn bg-gradient-to-r from-red-500 to-yellow-600 shadow transition-all duration-300 transform hover:scale-105" 
                                     data-animation="entrance" 
                                     onmouseenter="this.animate([{ transform: 'scale(1.05)' }, { transform: 'scale(1)' }], { duration: 300 })"
                                     onclick="document.getElementById('click-sound-3').play();">
@@ -125,7 +129,7 @@ import "../styles/tobii.min.css";
                     </div>
                 </section>                              
                 
-                <section class="max-w-4xl mx-auto mt-20 prose border border-double border-black p-8" id="hvaderstockfotos">
+                <section class="max-w-4xl mx-auto mt-32 prose border border-double border-black p-8" id="hvaderstockfotos">
                     <h2 class="text-2xl mb-4">Hvad er stock-fotos?</h2>
                     <div class="grid grid-cols-3 gap-8"> 
                         <div>
@@ -152,6 +156,17 @@ import "../styles/tobii.min.css";
                     <p>Pierres profeti om stock-foto branchen holdt stik. Pierre var allerede en af landets bedst sælgende stock-fotografer, før han blev færdig med studiet på DMJX. 
                     </p>
                 </section>
+
+                <div class="overflow-clip mt-16">
+                    <section id="horisontalscrollsection" class="h-[400vw]">
+                        <ul id="horisontalliste" class="list-none pl-0 flex sticky top-[10vh]">
+                        <li class="pl-0 flex w-[100vw] items-start justify-center flex-col overflow-hidden flex-grow-0 flex-shrink-0 flex-auto"><figure class="flex flex-row max-w-[800px]"><Image src={gammelfilm} class="w-2/3" alt="foto" /><figcaption class="pl-4 italic w-1/3">Dette fine, lille kamera er et Diana F, der skyder med 120-film.</figcaption></figure></li>
+                        <li class="flex w-[100vw] items-start justify-center flex-col overflow-hidden flex-grow-0 flex-shrink-0 flex-auto"><figure class="flex flex-row max-w-[800px]"><Image src={billigtobjektiv} class="w-9/10" alt="foto" /><figcaption class="pl-4 italic w-1/3">Dette fine, lille kamera er et Diana F, der skyder med 120-film.</figcaption></figure></li>
+                        <li class="flex w-[100vw] items-start justify-center flex-col overflow-hidden flex-grow-0 flex-shrink-0 flex-auto"><figure class="flex flex-row max-w-[800px]"><Image src={canoneos} class="w-9/10" alt="foto" /><figcaption class="pl-4 italic w-1/3">Dette fine, lille kamera er et Diana F, der skyder med 120-film.</figcaption></figure></li>
+                        <li class="flex w-[100vw] items-start justify-center flex-col overflow-hidden flex-grow-0 flex-shrink-0 flex-auto"><figure class="flex flex-row max-w-[800px]"><Image src={scan} class="w-9/10" alt="foto" /><figcaption class="pl-4 italic w-1/3">Dette fine, lille kamera er et Diana F, der skyder med 120-film.</figcaption></figure></li>
+                        </ul>
+                    </section>
+                </div>
 
                 <div id="pulsing-border" class="h-2 my-8"></div>
 
@@ -294,6 +309,14 @@ import "../styles/tobii.min.css";
             }
         );
 
+        // Horisontal scroll sektion
+        scroll(
+            animate("#horisontalliste", {
+                transform: ["none", "translateX(-500vw)"]
+            }),
+            { target: document.querySelector("#horisontalscrollsection") }
+        );
+
         // Timeline animation
         motionInView("#timelineanimationimage", () => {
             const timelineanimation: TimelineSegment[] = [
@@ -429,4 +452,3 @@ import "../styles/tobii.min.css";
         }
     });
 </script>
-
