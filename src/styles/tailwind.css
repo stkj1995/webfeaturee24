@@ -117,11 +117,47 @@
     }
   }
 
-  #pulsing-border {
-    animation: colorChange 3s infinite; /* Skifter farve hver 3 sekunder */
-    /* Behold resten af stilen fra før */
+  /*Flip card*/
+  .perspective {
+    perspective: 1000px;
   }
 
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+
+  .backface-hidden {
+    backface-visibility: hidden; /* Sørger for, at bagsiden ikke vises, når den er væk fra brugeren */
+  }
+
+  .rotate-y-180 {
+    transform: rotateY(180deg); /* Roterer elementet 180 grader */
+  }
+
+  /* Flip card - Tilføj transitions for farveskift */
+  .bg-blue-500 {
+    transition: background-color 0.7s ease; /* Transition for front side */
+  }
+
+  .bg-pink-500 {
+    transition: background-color 0.7s ease; /* Transition for back side */
+  }
+
+  /* Flip card - Ændrer baggrundsfarve ved hover */
+  .group:hover .bg-blue-500 {
+    background-color: #d53f8c; /* Eksempel på pink farve */
+  }
+
+  .group:hover .bg-pink-500 {
+    background-color: #4299e1; /* Eksempel på blå farve */
+  }
+
+  /*Pulsing border*/
+  #pulsing-border {
+    animation: colorChange 3s infinite; /* Skifter farve hver 3 sekunder */
+  }
+
+  /*:hover video*/
   #videoonhover video {
     transform: scale(1);
   }

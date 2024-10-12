@@ -58,8 +58,24 @@ import "../styles/tobii.min.css";
                         <span>Dit site bliver bedre!</span>
                     </div>
                 </section>
-                    
 
+                <section class="flex items-center justify-center min-h-screen">
+                    <div class="group perspective w-64 h-80 m-4">
+                        <div class="relative preserve-3d w-full h-full transition-transform duration-700 group-hover:rotate-y-180">
+                            <!-- Front Side -->
+                            <div class="absolute inset-0 flex items-center justify-center bg-blue-500 text-white backface-hidden p-4">
+                                <h2 class="text-2xl font-extrabold shadow-lg">
+                            </div>
+                            <!-- Back Side -->
+                            <div class="absolute inset-0 flex items-center justify-center bg-pink-500 text-white backface-hidden rotate-y-180 p-4">
+                                <div class="rotate-y-180">
+                                    <h2 class="text-2xl font-extrabold">🎉 Surprise Me!</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
                 <section id="videoonhover" class="max-w-4xl mx-auto mt-44 relative" x-ref="herovideo">
                     <video class="w-full rounded-lg shadow-lg transition-transform duration-300" autoplay muted loop @mouseenter="$refs.hovervideo.play()" 
                     @mouseleave="$refs.hovervideo.pause()">
@@ -368,5 +384,17 @@ import "../styles/tobii.min.css";
 
             observer.observe(button);
         });
+
+        // Flip card animation
+        const flipCard = document.querySelector('.group');
+        if (flipCard) {
+            flipCard.addEventListener('mouseenter', () => {
+                animate(flipCard.querySelector('.relative'), { rotateY: '180deg' }, { duration: 0.5 });
+            });
+
+            flipCard.addEventListener('mouseleave', () => {
+                animate(flipCard.querySelector('.relative'), { rotateY: '0deg' }, { duration: 0.5 });
+            });
+        }
     });
 </script>
